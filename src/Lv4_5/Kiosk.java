@@ -13,15 +13,15 @@ public class Kiosk {
     /**
      * @param menuList Menu 클래스
      */
-    public Kiosk(List<Menu> menuList){
+    public Kiosk(List<Menu> menuList) {
         this.menuList = menuList;
     }
 
     /**
      * 키오스크 시작 메서드
      */
-    public void start(){
-        while(true){
+    public void start() {
+        while (true) {
             System.out.println("[Main Menu]");
 
             /**
@@ -29,7 +29,7 @@ public class Kiosk {
              * Menu 클래스 타입의 리스트를 반복문으로 순환하면서 카테고리 출력
              */
             int num = 1;
-            for(Menu menu : menuList){
+            for (Menu menu : menuList) {
                 System.out.println(num++ + ". " + menu.getCategory());
             }
             System.out.println("0. 종료       | 종료");
@@ -40,7 +40,7 @@ public class Kiosk {
             int menuNum = sc.nextInt();
 
             // 키오스크 종료
-            if(menuNum == 0){
+            if (menuNum == 0) {
                 System.out.println("Kiosk가 종료됩니다.");
                 break;
             }
@@ -50,7 +50,7 @@ public class Kiosk {
              * selectedMenu라는 이름의 Menu 객체를 담을 수 있는 변수를 선언하여 특정 객체 담기
              * 특정 객체에 따른 MenuItem 보여주기
              */
-            if(menuNum >= 1 && menuNum <= menuList.size()) {
+            if (menuNum >= 1 && menuNum <= menuList.size()) {
                 Menu selectedMenu = menuList.get(menuNum - 1);
                 System.out.println("[ " + selectedMenu.getCategory() + "MENU ]");
                 selectedMenu.showMenuItem();
@@ -73,12 +73,11 @@ public class Kiosk {
                     System.out.println("잘못된 입력입니다.");
                 }
 
-            }else{
+            } else {
                 System.out.println("잘못된 입력입니다.");
             }
 
         }
 
     }
-
 }
