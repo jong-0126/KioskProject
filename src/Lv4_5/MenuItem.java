@@ -1,4 +1,4 @@
-package Lv4;
+package Lv4_5;
 
 public class MenuItem {
 
@@ -9,6 +9,11 @@ public class MenuItem {
     private Double price;
     private String content;
 
+    /**
+     * @param name 메뉴 이름
+     * @param price 메뉴 가격
+     * @param content 메뉴 설명
+     */
     public MenuItem(String name, Double price, String content) {
         this.name = name;
         this.price = price;

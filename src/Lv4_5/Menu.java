@@ -1,4 +1,4 @@
-package Lv4;
+package Lv4_5;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,8 +12,12 @@ public class Menu {
     /**
      * MenuItem 클래스를 List로 관리
      */
-    List<MenuItem> menuItems = new ArrayList<>();
+    private List<MenuItem> menuItems = new ArrayList<>();
 
+    /**
+     * @param category 카테고리
+     * @param menuItems 상세 메뉴 리스트
+     */
     public Menu(String category, List<MenuItem> menuItems) {
         this.category = category;
         this.menuItems.addAll(menuItems);

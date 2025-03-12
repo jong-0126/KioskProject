@@ -1,4 +1,4 @@
-package Lv4;
+package Lv4_5;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ public class Main {
 
         /**
          * Menu 클래스 내 있는 List<MenuItem> 에 MenuItem 객체 생성하면서 삽입
+         * 카테고리 별로 리스트 생성
          */
         List<MenuItem> burgerList = List.of(
                 new MenuItem("ShackBurger", 6.9, "토마토, 양상추, 쉑소스가 토핑된 치즈버거"),
@@ -16,16 +17,21 @@ public class Main {
         );
 
         List<MenuItem> DrinkList = List.of(
-                new MenuItem("Coke", 2.0, "맛있는 코카콜라")
+                new MenuItem("Coke", 2.0, "맛있는 코카콜라"),
+                new MenuItem("Cider", 2.0, "맛있는 사이다")
+
         );
 
         List<MenuItem> DesertList = List.of(
-                new MenuItem("iceCream", 1.0, "시원한 아이스크림")
+                new MenuItem("iceCream", 1.0, "시원한 아이스크림"),
+                new MenuItem("Shaved ice", 3.0, "시원한 빙수")
+
         );
 
 
         /**
          * Menu 객체 생성하면서 카테고리 이름 설정
+         * 카테고리에 맞는 리스트를 같은 객체로 설정
          */
         List<Menu> menuList = List.of(
                 new Menu("Burgers",burgerList),
