@@ -5,9 +5,9 @@ import challenge.menu.MenuItem;
 public class Cart {
 
     private MenuItem menuItem;
-    private Integer quantity;
+    private int quantity;
 
-    public Cart(MenuItem menuItem, Integer quantity){
+    public Cart(MenuItem menuItem, int quantity){
         this.menuItem = menuItem;
         this.quantity = quantity;
 
@@ -21,15 +21,15 @@ public class Cart {
         this.menuItem = menuItem;
     }
 
-    public Integer getQuantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void setQuantity(Integer quantity) {
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 
-    public Double totalPrice(){
+    public double totalPrice(){
         return menuItem.getPrice() * quantity;
     }
 

@@ -58,7 +58,7 @@ public class Kiosk {
                 // 상위 메뉴인 카테고리 메뉴로 돌아가기
                 System.out.println("원하는 메뉴 번호를 눌러주세요 (0을 누르면 돌아갑니다.)");
                 // 숫자 입력 받기
-                Integer detailMenuNum = sc.nextInt();
+                int detailMenuNum = sc.nextInt();
 
                 /**
                  * detailMenuNum의 숫자에 따라 0을 입력 받으면 상위 카테고리로 돌아가기
