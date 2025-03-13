@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.IntStream;
 
 public class Kiosk {
 
@@ -193,12 +194,8 @@ public class Kiosk {
 
         int num = sc.nextInt();
 
-        Discount dis = Discount.fromDouble(num);
-        return switch (dis){
-            case VETERAN -> total * 0.9;
-            case SOLDIER -> total * 0.95;
-            case STUDENT -> total * 0.97;
-            case ORDINARY -> total * 1.0;
-        };
+        Discount dis = Discount.fromNumber(num);
+
+        return dis.applyDiscount(total);
     }
 }

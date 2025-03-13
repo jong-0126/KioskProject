@@ -1,7 +1,7 @@
 package challenge.menu;
 
 public enum Discount {
-    VETERAN(1) ,SOLDIER(2), STUDENT(3), ORDINARY(4);
+    VETERAN(0.1) ,SOLDIER(0.05), STUDENT(0.03), ORDINARY(0);
 
     private double discount;
 
@@ -9,13 +9,17 @@ public enum Discount {
         this.discount = discount;
     }
 
-    public static Discount fromDouble(double discount){
-        for(Discount dis : Discount.values()){
-            if(dis.discount == discount){
-                return dis;
-            }
-        }
+    public double applyDiscount(double total){
+        return total * (1 - discount);
+    }
 
-        throw new IllegalArgumentException("해당하는 할인율이 없습니다.");
+    public static Discount fromNumber(int number){
+        switch (number){
+            case 1: return VETERAN;
+            case 2: return SOLDIER;
+            case 3: return STUDENT;
+            case 4: return ORDINARY;
+            default: throw new IllegalArgumentException("잘못된 입력입니다.");
+        }
     }
 }
