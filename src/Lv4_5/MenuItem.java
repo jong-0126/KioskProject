@@ -5,9 +5,9 @@ public class MenuItem {
     /**
      * 이름, 가격, 설명 필드 선언하여 관리
      */
-    private String name;
-    private Double price;
-    private String content;
+    private final String name;
+    private final Double price;
+    private final String content;
 
     /**
      * @param name 메뉴 이름

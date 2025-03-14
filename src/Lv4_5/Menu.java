@@ -7,12 +7,12 @@ public class Menu {
     /**
      * 카테고리 이름 필드 추가
      */
-    private String category;
+    private final String category;
 
     /**
      * MenuItem 클래스를 List로 관리
      */
-    private List<MenuItem> menuItems = new ArrayList<>();
+    private final List<MenuItem> menuItems = new ArrayList<>();
 
     /**
      * @param category 카테고리

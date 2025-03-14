@@ -9,7 +9,7 @@ public class Kiosk {
     // 스캐너 선언
     Scanner sc = new Scanner(System.in);
 
-    private List<Menu> menuList;
+    private final List<Menu> menuList;
 
     /**
      * @param menuList Menu 클래스
