@@ -1,5 +1,6 @@
 package Lv4_5;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -36,8 +37,7 @@ public class Kiosk {
 
 
             // 숫자 입력 받기
-            System.out.println("번호를 입력해주세요");
-            int menuNum = sc.nextInt();
+            int menuNum = inputNumber("번호를 입력해주세요");
 
             // 키오스크 종료
             if (menuNum == 0) {
@@ -55,15 +55,14 @@ public class Kiosk {
                 System.out.println("[ " + selectedMenu.getCategory() + "MENU ]");
                 selectedMenu.showMenuItem();
 
-                // 상위 메뉴인 카테고리 메뉴로 돌아가기
-                System.out.println("원하는 메뉴 번호를 눌러주세요 (0을 누르면 돌아갑니다.)");
-                // 숫자 입력 받기
-                int detailMenuNum = sc.nextInt();
+                // 번호 입력 받기
+                int detailMenuNum = inputNumber("원하는 메뉴 번호를 눌러주세요 (0을 누르면 돌아갑니다.)");
 
                 /**
                  * detailMenuNum의 숫자에 따라 0을 입력 받으면 상위 카테고리로 돌아가기
                  * 1 부터 앞에서 선택한 상세메뉴에 개수를 범위로 잡고 인덱스로 접근하여 선택된 메뉴를 출력
                  */
+                // 상위 메뉴인 카테고리 메뉴로 돌아가기
                 if (detailMenuNum == 0) {
                     continue;
                 } else if (detailMenuNum >= 1 && detailMenuNum <= selectedMenu.getMenuItems().size()) {
@@ -79,5 +78,20 @@ public class Kiosk {
 
         }
 
+    }
+
+    private int inputNumber(String message){
+        while(true){
+            int num;
+            try{
+                System.out.println(message);
+                num = sc.nextInt();
+                sc.nextLine();
+                return num;
+            }catch (InputMismatchException e){
+                System.out.println("잘못 입력했습니다. 번호를 입력해주세요.");
+                sc.nextLine();
+            }
+        }
     }
 }

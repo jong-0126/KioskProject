@@ -9,10 +9,20 @@ public enum Discount {
         this.discount = discount;
     }
 
+    /**
+     * 할인률 계산 메서드
+     * @param total 총금액
+     * @return
+     */
     public double applyDiscount(double total){
         return total * (1 - discount);
     }
 
+    /**
+     * 입력된 번호에 따른 할인률 리턴
+     * @param number 입력된 번호
+     * @return 번호에 따른 할인률
+     */
     public static Discount fromNumber(int number){
         switch (number){
             case 1: return VETERAN;

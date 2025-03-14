@@ -41,8 +41,7 @@ public class Kiosk {
 
             try{
                 // 숫자 입력 받기
-                System.out.println("번호를 입력해주세요");
-                int menuNum = sc.nextInt();
+                int menuNum = inputNumber("번호를 입력해주세요");
 
                 // 키오스크 종료
                 if (menuNum == 0) {
@@ -67,15 +66,14 @@ public class Kiosk {
                     System.out.println("[ " + selectedMenu.getCategory() + "MENU ]");
                     selectedMenu.showMenuItem();
 
-                    // 상위 메뉴인 카테고리 메뉴로 돌아가기
-                    System.out.println("원하는 메뉴 번호를 눌러주세요 (0을 누르면 돌아갑니다.)");
                     // 숫자 입력 받기
-                    int detailMenuNum = sc.nextInt();
+                    int detailMenuNum = inputNumber("원하는 메뉴 번호를 눌러주세요 (0을 누르면 돌아갑니다.)");
 
                     /**
                      * detailMenuNum의 숫자에 따라 0을 입력 받으면 상위 카테고리로 돌아가기
                      * 1 부터 앞에서 선택한 상세메뉴에 개수를 범위로 잡고 인덱스로 접근하여 선택된 메뉴를 출력
                      */
+                    // 0을 입력 하면 상위 메뉴인 카테고리 메뉴로 돌아가기
                     if (detailMenuNum == 0) {
 
                     } else if (detailMenuNum >= 1 && detailMenuNum <= selectedMenu.getMenuItems().size()) {
@@ -103,6 +101,26 @@ public class Kiosk {
                 }
             }catch (InputMismatchException e){
                 System.out.println("잘못된 입력입니다.");
+                sc.nextLine();
+            }
+        }
+    }
+
+    /**
+     * 숫자 입력 메서드
+     * @param message 숫자를 입력해 달라는 메세지
+     * @return 입력 한 숫자
+     */
+    private int inputNumber(String message){
+        while(true){
+            int num;
+            try{
+                System.out.println(message);
+                num = sc.nextInt();
+                sc.nextLine();
+                return num;
+            }catch (InputMismatchException e){
+                System.out.println("잘못 입력했습니다. 번호를 입력해주세요.");
                 sc.nextLine();
             }
         }
@@ -155,6 +173,9 @@ public class Kiosk {
         System.out.println(menuItem.getName() + "가 장바구니에 추가되었습니다.");
     }
 
+    /**
+     * 장바구니 추가 메서드
+     */
     private void orderCart() {
         if (cartList.isEmpty()) {
             System.out.println("장바구니가 비어있습니다.");
@@ -185,6 +206,11 @@ public class Kiosk {
         }
     }
 
+    /**
+     * 할인 정보에 따른 할인률 메서드
+     * @param total 총 주문 금액
+     * @return 할인 된 금액
+     */
     private double discount(double total){
         System.out.println("할인 정보를 입력해주세요.");
         System.out.println("1. 국가유공자 : 10%");
