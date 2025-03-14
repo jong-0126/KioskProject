@@ -15,7 +15,15 @@ public class Main {
         System.out.println("0. 종료       | 종료");
         while (true) {
             System.out.println("번호를 입력해주세요: ");
-            String num = sc.nextLine();
+            String num;
+            // 입력 예외 처리
+            try{
+                num = sc.nextLine();
+            }catch (NumberFormatException e){
+                System.out.println("잘못 입력하셨습니다. 숫자를 입력해주세요.");
+                continue;
+            }
+
             if (num.equals("1")) {
                 System.out.println("1. ShackBurger 선택하셨습니다. 가격은 $6.9 입니다.");
             } else if (num.equals("2")) {

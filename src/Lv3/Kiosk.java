@@ -1,6 +1,7 @@
 package Lv3;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -30,7 +31,17 @@ public class Kiosk {
     public void start() {
         while (true) {
             System.out.println("원하시는 번호를 눌러주세요.");
-            int num = sc.nextInt();
+
+            int num;
+            try{
+                num = sc.nextInt();
+                sc.nextLine();
+            }catch (InputMismatchException e){
+                System.out.println("잘못 입력하셨습니다. 숫자를 입력해주세요.");
+                sc.nextLine();
+                continue;
+            }
+
             if (num == 0) {
                 System.out.println("프로그램을 종료하겠습니다.");
                 break;

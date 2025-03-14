@@ -11,9 +11,9 @@ public class MenuItem {
 
     /**
      * 생성자
-     * @param name
-     * @param price
-     * @param detail
+     * @param name 이름
+     * @param price 가격
+     * @param detail 상세
      */
     public MenuItem(String name, double price, String detail){
         this.name = name;

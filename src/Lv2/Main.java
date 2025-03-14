@@ -1,6 +1,7 @@
 package Lv2;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -31,7 +32,15 @@ public class Main {
             // 숫자를 입력 받기
             System.out.println("원하시는 번호를 입력해주세요");
 
-            int num = sc.nextInt();
+            int num;
+            try{
+                num = sc.nextInt();
+                sc.nextLine();
+            }catch (InputMismatchException e) {
+                System.out.println("잘못 입력하셨습니다. 숫자를 입력해주세요.");
+                sc.nextLine();
+                continue;
+            }
 
             // 입력된 숫자에 따른 처리
             if(num == 1){
@@ -51,5 +60,6 @@ public class Main {
                 System.out.println("번호를 잘못 입력하셨습니다.");
             }
         }
+        sc.close();
     }
 }
